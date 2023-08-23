@@ -1,0 +1,199 @@
+openapi: 3.0.3
+info:
+  title: geolocation-api
+  description: |
+    Geolocation microservice
+  version: 1.0.0
+servers:
+- url: /rest/geolocation-api/v1.0/
+paths:
+  /getLocation:
+    post:
+      tags:
+      - Obtener localizacion
+      summary: Obtener localizacion
+      description: Obtener localizacion
+      operationId: get_geolocation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseRequest'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseGetLocation'
+        "400":
+          description: Bad Request
+      x-openapi-router-controller: swagger_server.controllers.obtener_localizacion_controller
+  /saveLocationVendor:
+    post:
+      tags:
+      - Guardar localizacion de un vendedor
+      summary: Guardar localizacion de un vendedor
+      description: Guardar localizacion de un vendedor
+      operationId: save_location_vendor
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestSaveLocationVendor'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseSaveLocationVendor'
+        "400":
+          description: Bad Request
+      x-openapi-router-controller: swagger_server.controllers.guardar_localizacion_de_un_vendedor_controller
+  /revGeoCode:
+    post:
+      tags:
+      - Obtiene la ubicación inversa (reverse geocoding)
+      summary: Obtiene la ubicación inversa
+      description: Obtiene la ubicación inversa (reverse geocoding) basada en las
+        coordenadas proporcionadas.
+      operationId: rev_geocode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestRevGeoCode'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseRevGeoCode'
+        "400":
+          description: Bad Request
+      x-openapi-router-controller: swagger_server.controllers.obtiene_la_ubicación_inversa_(reverse_geocoding)controller
+components:
+  schemas:
+    BaseRequest:
+      properties:
+        channel:
+          type: string
+          example: CHANNEL
+        externalTransactionId:
+          type: string
+          example: fcea920f7412b5da7be0cf42b8c93759
+    BaseResponse:
+      properties:
+        channel:
+          type: string
+          example: CHANNEL
+        externalTransactionId:
+          type: string
+          example: fcea920f7412b5da7be0cf42b8c93759
+        internalTransactionId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+    DataGetLocation:
+      properties:
+        ip:
+          type: string
+          example: 192.168.1.1
+        latitude:
+          type: number
+          example: 37.7749
+        longitude:
+          type: number
+          example: -122.4194
+      example:
+        ip: 192.168.1.1
+        latitude: 37.7749
+        longitude: -122.4194
+    CustomerSaveLocationVendor:
+      properties:
+        code_email:
+          type: string
+          example: admin@xtrim.ec
+        ip:
+          type: string
+          example: 192.168.1.1
+        id_prospect:
+          type: integer
+          example: 1
+        latitude:
+          type: number
+          example: 37.7749
+        longitude:
+          type: number
+          example: -122.4194
+    CustomerRevGeoCode:
+      properties:
+        latitude:
+          type: number
+          example: 37.7749
+        longitude:
+          type: number
+          example: -122.4194
+    RequestRevGeoCode:
+      properties:
+        customer:
+          $ref: '#/components/schemas/CustomerRevGeoCode'
+      allOf:
+      - $ref: '#/components/schemas/BaseRequest'
+    RequestSaveLocationVendor:
+      properties:
+        customer:
+          $ref: '#/components/schemas/CustomerSaveLocationVendor'
+      allOf:
+      - $ref: '#/components/schemas/BaseRequest'
+    ResponseGetLocation:
+      properties:
+        code:
+          type: string
+          example: "0"
+        message:
+          type: string
+          example: Datos obtenidos exitosamente.
+        data:
+          $ref: '#/components/schemas/DataGetLocation'
+      example:
+        code: "0"
+        data:
+          ip: 192.168.1.1
+          latitude: 37.7749
+          longitude: -122.4194
+        message: Datos obtenidos exitosamente.
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+    ResponseSaveLocationVendor:
+      properties:
+        code:
+          type: string
+          example: "0"
+        message:
+          type: string
+          example: Datos guardados exitosamente.
+      example:
+        code: "0"
+        message: Datos guardados exitosamente.
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+    ResponseRevGeoCode:
+      properties:
+        code:
+          type: string
+          example: "0"
+        message:
+          type: string
+          example: Datos obtenidos exitosamente.
+        data:
+          type: object
+      example:
+        code: "0"
+        data: {}
+        message: Datos obtenidos exitosamente.
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+
