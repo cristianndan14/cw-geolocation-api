@@ -73,7 +73,7 @@ paths:
                 $ref: '#/components/schemas/ResponseRevGeoCode'
         "400":
           description: Bad Request
-      x-openapi-router-controller: swagger_server.controllers.rev_geocode_controller
+      x-openapi-router-controller: swagger_server.controllers.rev_geocode_controller.RevGeocodeView
 components:
   schemas:
     BaseRequest:

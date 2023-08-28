@@ -10,7 +10,6 @@ from swagger_server.uses_cases.get_location_uses_cases import GetLocationUseCase
 from swagger_server.services.get_location_service import GetLocationService
 from swagger_server.utils.transactions.transaction import generate_internal_transaction_id
 from swagger_server.utils.logs.logging import log as logging
-from swagger_server.resources.db import db
 
 
 class GetLocationView(MethodView):
