@@ -7,7 +7,7 @@ from typing import List, Dict  # noqa: F401
 
 from swagger_server.models.base_model_ import Model
 from swagger_server.models.base_request import BaseRequest  # noqa: F401,E501
-from swagger_server.models.customer_save_location_vendor import CustomerSaveLocationVendor  # noqa: F401,E501
+from swagger_server.models.data_save_location_vendor import DataSaveLocationVendor  # noqa: F401,E501
 from swagger_server import util
 
 
@@ -16,30 +16,30 @@ class RequestSaveLocationVendor(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, channel: str=None, external_transaction_id: str=None, customer: CustomerSaveLocationVendor=None):  # noqa: E501
+    def __init__(self, channel: str=None, external_transaction_id: str=None, data: DataSaveLocationVendor=None):  # noqa: E501
         """RequestSaveLocationVendor - a model defined in Swagger
 
         :param channel: The channel of this RequestSaveLocationVendor.  # noqa: E501
         :type channel: str
         :param external_transaction_id: The external_transaction_id of this RequestSaveLocationVendor.  # noqa: E501
         :type external_transaction_id: str
-        :param customer: The customer of this RequestSaveLocationVendor.  # noqa: E501
-        :type customer: CustomerSaveLocationVendor
+        :param data: The data of this RequestSaveLocationVendor.  # noqa: E501
+        :type data: DataSaveLocationVendor
         """
         self.swagger_types = {
             'channel': str,
             'external_transaction_id': str,
-            'customer': CustomerSaveLocationVendor
+            'data': DataSaveLocationVendor
         }
 
         self.attribute_map = {
             'channel': 'channel',
             'external_transaction_id': 'externalTransactionId',
-            'customer': 'customer'
+            'data': 'data'
         }
         self._channel = channel
         self._external_transaction_id = external_transaction_id
-        self._customer = customer
+        self._data = data
 
     @classmethod
     def from_dict(cls, dikt) -> 'RequestSaveLocationVendor':
@@ -95,22 +95,22 @@ class RequestSaveLocationVendor(Model):
         self._external_transaction_id = external_transaction_id
 
     @property
-    def customer(self) -> CustomerSaveLocationVendor:
-        """Gets the customer of this RequestSaveLocationVendor.
+    def data(self) -> DataSaveLocationVendor:
+        """Gets the data of this RequestSaveLocationVendor.
 
 
-        :return: The customer of this RequestSaveLocationVendor.
-        :rtype: CustomerSaveLocationVendor
+        :return: The data of this RequestSaveLocationVendor.
+        :rtype: DataSaveLocationVendor
         """
-        return self._customer
+        return self._data
 
-    @customer.setter
-    def customer(self, customer: CustomerSaveLocationVendor):
-        """Sets the customer of this RequestSaveLocationVendor.
+    @data.setter
+    def data(self, data: DataSaveLocationVendor):
+        """Sets the data of this RequestSaveLocationVendor.
 
 
-        :param customer: The customer of this RequestSaveLocationVendor.
-        :type customer: CustomerSaveLocationVendor
+        :param data: The data of this RequestSaveLocationVendor.
+        :type data: DataSaveLocationVendor
         """
 
-        self._customer = customer
+        self._data = data

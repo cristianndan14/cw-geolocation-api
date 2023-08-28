@@ -5,9 +5,9 @@ from __future__ import absolute_import
 # import models into model package
 from swagger_server.models.base_request import BaseRequest
 from swagger_server.models.base_response import BaseResponse
-from swagger_server.models.customer_rev_geo_code import CustomerRevGeoCode
-from swagger_server.models.customer_save_location_vendor import CustomerSaveLocationVendor
 from swagger_server.models.data_get_location import DataGetLocation
+from swagger_server.models.data_rev_geo_code import DataRevGeoCode
+from swagger_server.models.data_save_location_vendor import DataSaveLocationVendor
 from swagger_server.models.request_rev_geo_code import RequestRevGeoCode
 from swagger_server.models.request_save_location_vendor import RequestSaveLocationVendor
 from swagger_server.models.response_get_location import ResponseGetLocation

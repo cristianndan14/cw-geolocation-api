@@ -7,7 +7,7 @@ from typing import List, Dict  # noqa: F401
 
 from swagger_server.models.base_model_ import Model
 from swagger_server.models.base_request import BaseRequest  # noqa: F401,E501
-from swagger_server.models.customer_rev_geo_code import CustomerRevGeoCode  # noqa: F401,E501
+from swagger_server.models.data_rev_geo_code import DataRevGeoCode  # noqa: F401,E501
 from swagger_server import util
 
 
@@ -16,30 +16,30 @@ class RequestRevGeoCode(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, channel: str=None, external_transaction_id: str=None, customer: CustomerRevGeoCode=None):  # noqa: E501
+    def __init__(self, channel: str=None, external_transaction_id: str=None, data: DataRevGeoCode=None):  # noqa: E501
         """RequestRevGeoCode - a model defined in Swagger
 
         :param channel: The channel of this RequestRevGeoCode.  # noqa: E501
         :type channel: str
         :param external_transaction_id: The external_transaction_id of this RequestRevGeoCode.  # noqa: E501
         :type external_transaction_id: str
-        :param customer: The customer of this RequestRevGeoCode.  # noqa: E501
-        :type customer: CustomerRevGeoCode
+        :param data: The data of this RequestRevGeoCode.  # noqa: E501
+        :type data: DataRevGeoCode
         """
         self.swagger_types = {
             'channel': str,
             'external_transaction_id': str,
-            'customer': CustomerRevGeoCode
+            'data': DataRevGeoCode
         }
 
         self.attribute_map = {
             'channel': 'channel',
             'external_transaction_id': 'externalTransactionId',
-            'customer': 'customer'
+            'data': 'data'
         }
         self._channel = channel
         self._external_transaction_id = external_transaction_id
-        self._customer = customer
+        self._data = data
 
     @classmethod
     def from_dict(cls, dikt) -> 'RequestRevGeoCode':
@@ -95,22 +95,22 @@ class RequestRevGeoCode(Model):
         self._external_transaction_id = external_transaction_id
 
     @property
-    def customer(self) -> CustomerRevGeoCode:
-        """Gets the customer of this RequestRevGeoCode.
+    def data(self) -> DataRevGeoCode:
+        """Gets the data of this RequestRevGeoCode.
 
 
-        :return: The customer of this RequestRevGeoCode.
-        :rtype: CustomerRevGeoCode
+        :return: The data of this RequestRevGeoCode.
+        :rtype: DataRevGeoCode
         """
-        return self._customer
+        return self._data
 
-    @customer.setter
-    def customer(self, customer: CustomerRevGeoCode):
-        """Sets the customer of this RequestRevGeoCode.
+    @data.setter
+    def data(self, data: DataRevGeoCode):
+        """Sets the data of this RequestRevGeoCode.
 
 
-        :param customer: The customer of this RequestRevGeoCode.
-        :type customer: CustomerRevGeoCode
+        :param data: The data of this RequestRevGeoCode.
+        :type data: DataRevGeoCode
         """
 
-        self._customer = customer
+        self._data = data

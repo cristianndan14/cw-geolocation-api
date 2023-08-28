@@ -10,8 +10,8 @@ from swagger_server.models.response_rev_geo_code import ResponseRevGeoCode  # no
 from swagger_server.test import BaseTestCase
 
 
-class TestObtieneLaUbicacinInversaReverseGeocodingController(BaseTestCase):
-    """ObtieneLaUbicacinInversaReverseGeocodingController integration test stubs"""
+class TestRevGeocodeController(BaseTestCase):
+    """RevGeocodeController integration test stubs"""
 
     def test_rev_geocode(self):
         """Test case for rev_geocode

@@ -7,6 +7,7 @@ from typing import List, Dict  # noqa: F401
 
 from swagger_server.models.base_model_ import Model
 from swagger_server.models.base_response import BaseResponse  # noqa: F401,E501
+from swagger_server.models.data_save_location_vendor import DataSaveLocationVendor  # noqa: F401,E501
 from swagger_server import util
 
 
@@ -15,7 +16,7 @@ class ResponseSaveLocationVendor(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, channel: str=None, external_transaction_id: str=None, internal_transaction_id: str=None, code: str=None, message: str=None):  # noqa: E501
+    def __init__(self, channel: str=None, external_transaction_id: str=None, internal_transaction_id: str=None, code: str=None, message: str=None, data: DataSaveLocationVendor=None):  # noqa: E501
         """ResponseSaveLocationVendor - a model defined in Swagger
 
         :param channel: The channel of this ResponseSaveLocationVendor.  # noqa: E501
@@ -28,13 +29,16 @@ class ResponseSaveLocationVendor(Model):
         :type code: str
         :param message: The message of this ResponseSaveLocationVendor.  # noqa: E501
         :type message: str
+        :param data: The data of this ResponseSaveLocationVendor.  # noqa: E501
+        :type data: DataSaveLocationVendor
         """
         self.swagger_types = {
             'channel': str,
             'external_transaction_id': str,
             'internal_transaction_id': str,
             'code': str,
-            'message': str
+            'message': str,
+            'data': DataSaveLocationVendor
         }
 
         self.attribute_map = {
@@ -42,13 +46,15 @@ class ResponseSaveLocationVendor(Model):
             'external_transaction_id': 'externalTransactionId',
             'internal_transaction_id': 'internalTransactionId',
             'code': 'code',
-            'message': 'message'
+            'message': 'message',
+            'data': 'data'
         }
         self._channel = channel
         self._external_transaction_id = external_transaction_id
         self._internal_transaction_id = internal_transaction_id
         self._code = code
         self._message = message
+        self._data = data
 
     @classmethod
     def from_dict(cls, dikt) -> 'ResponseSaveLocationVendor':
@@ -165,3 +171,24 @@ class ResponseSaveLocationVendor(Model):
         """
 
         self._message = message
+
+    @property
+    def data(self) -> DataSaveLocationVendor:
+        """Gets the data of this ResponseSaveLocationVendor.
+
+
+        :return: The data of this ResponseSaveLocationVendor.
+        :rtype: DataSaveLocationVendor
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data: DataSaveLocationVendor):
+        """Sets the data of this ResponseSaveLocationVendor.
+
+
+        :param data: The data of this ResponseSaveLocationVendor.
+        :type data: DataSaveLocationVendor
+        """
+
+        self._data = data

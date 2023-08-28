@@ -10,7 +10,7 @@ paths:
   /getLocation:
     post:
       tags:
-      - Obtener localizacion
+      - Get Location
       summary: Obtener localizacion
       description: Obtener localizacion
       operationId: get_geolocation
@@ -28,11 +28,11 @@ paths:
                 $ref: '#/components/schemas/ResponseGetLocation'
         "400":
           description: Bad Request
-      x-openapi-router-controller: swagger_server.controllers.obtener_localizacion_controller
+      x-openapi-router-controller: swagger_server.controllers.get_location_controller.GetLocationView
   /saveLocationVendor:
     post:
       tags:
-      - Guardar localizacion de un vendedor
+      - Save Location Vendor
       summary: Guardar localizacion de un vendedor
       description: Guardar localizacion de un vendedor
       operationId: save_location_vendor
@@ -50,11 +50,11 @@ paths:
                 $ref: '#/components/schemas/ResponseSaveLocationVendor'
         "400":
           description: Bad Request
-      x-openapi-router-controller: swagger_server.controllers.guardar_localizacion_de_un_vendedor_controller
+      x-openapi-router-controller: swagger_server.controllers.save_location_vendor_controller
   /revGeoCode:
     post:
       tags:
-      - Obtiene la ubicación inversa (reverse geocoding)
+      - Rev Geocode
       summary: Obtiene la ubicación inversa
       description: Obtiene la ubicación inversa (reverse geocoding) basada en las
         coordenadas proporcionadas.
@@ -73,7 +73,7 @@ paths:
                 $ref: '#/components/schemas/ResponseRevGeoCode'
         "400":
           description: Bad Request
-      x-openapi-router-controller: swagger_server.controllers.obtiene_la_ubicación_inversa_(reverse_geocoding)controller
+      x-openapi-router-controller: swagger_server.controllers.rev_geocode_controller
 components:
   schemas:
     BaseRequest:
@@ -111,7 +111,7 @@ components:
         ip: 192.168.1.1
         latitude: 37.7749
         longitude: -122.4194
-    CustomerSaveLocationVendor:
+    DataSaveLocationVendor:
       properties:
         code_email:
           type: string
@@ -128,7 +128,13 @@ components:
         longitude:
           type: number
           example: -122.4194
-    CustomerRevGeoCode:
+      example:
+        code_email: admin@xtrim.ec
+        ip: 192.168.1.1
+        latitude: 37.7749
+        id_prospect: 1
+        longitude: -122.4194
+    DataRevGeoCode:
       properties:
         latitude:
           type: number
@@ -138,14 +144,14 @@ components:
           example: -122.4194
     RequestRevGeoCode:
       properties:
-        customer:
-          $ref: '#/components/schemas/CustomerRevGeoCode'
+        data:
+          $ref: '#/components/schemas/DataRevGeoCode'
       allOf:
       - $ref: '#/components/schemas/BaseRequest'
     RequestSaveLocationVendor:
       properties:
-        customer:
-          $ref: '#/components/schemas/CustomerSaveLocationVendor'
+        data:
+          $ref: '#/components/schemas/DataSaveLocationVendor'
       allOf:
       - $ref: '#/components/schemas/BaseRequest'
     ResponseGetLocation:
@@ -175,8 +181,16 @@ components:
         message:
           type: string
           example: Datos guardados exitosamente.
+        data:
+          $ref: '#/components/schemas/DataSaveLocationVendor'
       example:
         code: "0"
+        data:
+          code_email: admin@xtrim.ec
+          ip: 192.168.1.1
+          latitude: 37.7749
+          id_prospect: 1
+          longitude: -122.4194
         message: Datos guardados exitosamente.
       allOf:
       - $ref: '#/components/schemas/BaseResponse'

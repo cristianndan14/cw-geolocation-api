@@ -10,8 +10,8 @@ from swagger_server.models.response_get_location import ResponseGetLocation  # n
 from swagger_server.test import BaseTestCase
 
 
-class TestObtenerLocalizacionController(BaseTestCase):
-    """ObtenerLocalizacionController integration test stubs"""
+class TestGetLocationController(BaseTestCase):
+    """GetLocationController integration test stubs"""
 
     def test_get_geolocation(self):
         """Test case for get_geolocation

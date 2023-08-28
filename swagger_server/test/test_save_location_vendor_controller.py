@@ -10,8 +10,8 @@ from swagger_server.models.response_save_location_vendor import ResponseSaveLoca
 from swagger_server.test import BaseTestCase
 
 
-class TestGuardarLocalizacionDeUnVendedorController(BaseTestCase):
-    """GuardarLocalizacionDeUnVendedorController integration test stubs"""
+class TestSaveLocationVendorController(BaseTestCase):
+    """SaveLocationVendorController integration test stubs"""
 
     def test_save_location_vendor(self):
         """Test case for save_location_vendor
