@@ -50,7 +50,7 @@ paths:
                 $ref: '#/components/schemas/ResponseSaveLocationVendor'
         "400":
           description: Bad Request
-      x-openapi-router-controller: swagger_server.controllers.save_location_vendor_controller
+      x-openapi-router-controller: swagger_server.controllers.save_location_vendor_controller.SaveLocationVendorView
   /revGeoCode:
     post:
       tags:
