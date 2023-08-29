@@ -20,10 +20,10 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="geolocation-api",
+    description="cw-geolocation-api",
     author_email="",
     url="",
-    keywords=["Swagger", "geolocation-api"],
+    keywords=["Swagger", "cw-geolocation-api"],
     install_requires=REQUIRES,
     packages=find_packages(),
     package_data={'': ['swagger/swagger.yaml']},

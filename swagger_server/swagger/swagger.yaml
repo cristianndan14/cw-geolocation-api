@@ -1,11 +1,11 @@
 openapi: 3.0.3
 info:
-  title: geolocation-api
+  title: cw-geolocation-api
   description: |
     Geolocation microservice
   version: 1.0.0
 servers:
-- url: /rest/geolocation-api/v1.0/
+- url: /rest/cw-geolocation-api/v1.0/
 paths:
   /getLocation:
     post:
