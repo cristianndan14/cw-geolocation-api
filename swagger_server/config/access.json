@@ -1,11 +1,22 @@
 {
-    "MODE": "PROD",
     "SALT": "$2b$12$DmpeAC/LMmc8UVA2ty5Uou",
-    "SQLALCHEMY_DATABASE_URI": "mysql+pymysql://dba:c2VjcmV0Cg==@3.136.234.203:3306/xtrim",
-    "SQLALCHEMY_ENGINE_OPTIONS": {
-        "echo": false,
-        "pool_recycle": 300,
-        "pool_pre_ping": true
+    "DB_MODE": {
+        "DEV": {
+            "SQLALCHEMY_DATABASE_URI": "mysql+pymysql://dba:c2VjcmV0Cg==@3.136.234.203:3306/xtrim",
+            "SQLALCHEMY_ENGINE_OPTIONS": {
+                "echo": false,
+                "pool_recycle": 300,
+                "pool_pre_ping": true
+            }
+        },
+        "PROD": {
+            "SQLALCHEMY_DATABASE_URI": "mysql+pymysql://Nextgen:Ti%24Xtrim2023%40%23ext@192.168.59.55:3306/xtrim_contratos",
+            "SQLALCHEMY_ENGINE_OPTIONS": {
+                "echo": false,
+                "pool_recycle": 300,
+                "pool_pre_ping": true
+            }
+        }
     },
     "KEY_API_GOOGLE_MAPS": "AIzaSyDrJ6jyya3VFCzv1agtIVixQvDYEkjmljA",
     "SERVICES": {}
