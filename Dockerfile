@@ -29,7 +29,7 @@ ENV ENVIRONMENT=PROD
 RUN mkdir -p /usr/src/app/logs
 COPY . /usr/src/app
 
-EXPOSE 2103
+EXPOSE 2112
 
 ENTRYPOINT ["python3"]
 CMD ["-m", "swagger_server"]
